@@ -1,0 +1,11 @@
+Demo link - https://crudcrud.com/
+
+Demo steps to follow:
+1) Open postman browser or desktop App
+2) Create a Worksapce
+3) Create a new collection
+4) Create the following requests as per the demo link
+ - POST
+ - GET
+ - PUT
+ - DELETE

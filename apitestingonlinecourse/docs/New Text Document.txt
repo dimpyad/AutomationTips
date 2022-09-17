@@ -1,0 +1,10 @@
+## Service Oriented Architecture
+- Abstraction over complexity
+- Discoverability
+- Autonomy
+- Reusability
+- Contract
+- Loosely coupled
+- Cross platform support
+
+Reference - https://www.redhat.com/en/topics/cloud-native-apps/what-is-service-oriented-architecture

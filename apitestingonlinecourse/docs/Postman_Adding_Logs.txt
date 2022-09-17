@@ -1,0 +1,2 @@
+# Adding logs in postman
+- https://blog.postman.com/powerful-debugging-with-the-postman-console/

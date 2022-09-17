@@ -1,0 +1,23 @@
+# Monolithic architecure
+- https://microservices.io/patterns/monolithic.html
+
+## Pros of Monolithic architecture
+  - One code base - one repository
+  - Single deployment file
+  - Easy to search and find all functionality one repository 
+  - Single test pipeline
+  - Single deployment pipeline 
+  - Single shared database
+  - Single infrastructure needs to be managed. 
+
+## Cons of Monolithic architecture
+  - Overloaded IDE
+  - Overloaded web container
+  - Continuous deployment is difficult
+  - Continuous testing is difficult
+  - Scaling the application is difficult 
+  - Development is slow specially for new joiners
+  - Requires a long-term commitment to a technology stack 
+  
+## Additional Resources 
+- Example: Aplication built using Ruby On Rails (https://rubyonrails.org/)

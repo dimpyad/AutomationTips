@@ -1,0 +1,12 @@
+## Initial vs Current value
+### Initial Value
+- Gets sync to postman server
+- For private collection, team can access.
+- For public collection anyone can access.
+
+### Current Value
+- Only gets save locally
+
+## Persist All Option
+- Allows to push current value to the shared data in postman server
+- Updating the initial value to match the current value

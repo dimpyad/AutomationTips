@@ -1,0 +1,69 @@
+# Test script - Postman
+const responseJson = pm.response.json();
+console.log(responseJson);
+
+const schema={
+ "type" : "object",
+ "properties" :{
+   "args": {
+     "type" : "object"
+    },
+    "headers" : {
+    "type": "object"
+    },
+    "url" : {
+    "type": "string"
+    }
+  }
+}
+
+pm.test("Status code is 200", () => {
+  pm.expect(pm.response.code).to.eql(200);
+});
+
+pm.test("The response properties", () => {
+  
+  pm.expect(responseJson.url).to.eql('https://postman-echo.com/get');
+  pm.expect(responseJson.headers.host).to.eql('postman-echo.com');
+
+});
+
+pm.test("Response property matches environment variable", function () {
+  
+  pm.expect(pm.response.json().headers.host).to.eql(pm.environment.get("host"));
+});
+
+pm.test("Test Response Headers - Vary and ContentType", () => {
+  
+    pm.response.to.have.header("Vary");
+    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json; charset=utf-8');
+});
+
+pm.test("Cookie sails.sid is present", () => {
+  
+    pm.expect(pm.cookies.has('sails.sid')).to.be.true;
+});
+
+pm.test("Response time is less than 1000ms", () => {
+  
+    console.log(pm.response.responseTime);
+    pm.expect(pm.response.responseTime).to.be.below(1000);
+});
+
+pm.test("Test data type of the response", () => {
+  
+    pm.expect(responseJson).to.be.an("object");
+    pm.expect(responseJson.url).to.be.a("string");
+});
+
+pm.test("Test array properties", () => {
+  
+    pm.expect(responseJson.args).to.be.empty;
+});
+
+pm.test("Test response schema", () => {
+  
+    pm.response.to.have.jsonSchema(schema);
+});
+
+

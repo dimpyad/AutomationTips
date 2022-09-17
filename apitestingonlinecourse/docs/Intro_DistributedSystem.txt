@@ -1,0 +1,27 @@
+# Introduction to Distributed system
+- https://www.freecodecamp.org/news/a-thorough-introduction-to-distributed-systems-3b91562c9b3c/
+
+## Benifites of distributed system
+- Scale horizontally
+- Modular growth
+- Fault tolerance
+- Low Latency
+- Cost effective
+
+# N-tier architecture
+- Each tier has specific responsibility
+- Physically separated machines
+- Improves scalability but adds latency
+
+## Close layer
+- A layer can call only the next layer immediately down.
+
+## Open layer
+- A layer can call any layer down below it.
+
+# Vertical Vs Horizontal scaling
+- https://www.cloudzero.com/blog/horizontal-vs-vertical-scaling
+
+# Azure distributed N-tire architecure example
+- https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier
+

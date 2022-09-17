@@ -1,0 +1,5 @@
+## Swagger documentation
+- https://swagger.io/docs/
+- Example (html) : https://fakerestapi.azurewebsites.net/index.html
+- Example spec file : https://fakerestapi.azurewebsites.net/swagger/v1/swagger.json
+- Import swagger spec into postman : https://learning.postman.com/docs/integrations/available-integrations/working-with-openAPI/

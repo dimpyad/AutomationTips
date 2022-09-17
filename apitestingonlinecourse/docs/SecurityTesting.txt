@@ -1,0 +1,18 @@
+## Security testing in microservices
+### 4Cs of Cloud Native Security
+- https://kubernetes.io/docs/concepts/security/overview/
+
+### OWASP Top 10 vulnerability for API
+- https://owasp.org/www-project-api-security/
+
+### Burp Suite Download
+- https://portswigger.net/burp/releases/professional-community-2021-10-3?requestededition=community
+
+### Postman and Burp suite
+- https://www.secureideas.com/blog/2019/03/better-api-penetration-testing-with-postman-part-1.html
+- https://www.secureideas.com/blog/2019/03/better-api-penetration-testing-with-postman-part-2.html
+- https://www.secureideas.com/blog/2019/04/better-api-penetration-testing-with-postman-part-3.html
+- https://www.secureideas.com/blog/2019/06/better-api-penetration-testing-with-postman-part-4.html
+
+### Postman Security Test generator
+- https://github.com/allenheltondev/postman-security-test-generator

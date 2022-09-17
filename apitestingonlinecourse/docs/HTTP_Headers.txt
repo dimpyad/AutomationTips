@@ -1,0 +1,6 @@
+Query vs Path Parameters
+- Query Parameter (Adding Filters) - /users?id=123 # Fetch a user who has id of 123
+- Path Parameter (identify unique resource) - /users/123 # Fetch a user who has id 123
+
+Http header 
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers

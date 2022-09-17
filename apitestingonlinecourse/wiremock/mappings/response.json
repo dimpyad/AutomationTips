@@ -1,0 +1,144 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/api/getdata2"
+        
+      }
+      ,
+      "response": {
+        "status": 200,
+          "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+          "bodyFileName": "data_pattern_2.json"
+
+      }
+    }
+    ,
+    {
+      "request": {
+        "method": "GET",
+        "url": "/api/getdata1"
+        
+      }
+      ,
+      "response": {
+        "status": 200,
+          "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+          "bodyFileName": "data_pattern_1.json"
+
+      }
+    }
+    ,
+    {
+      "request": {
+        "method": "POST",
+        "url": "/api/token",
+         "basicAuthCredentials" : {
+      	"username" : "valid_username",
+      	"password" : "valid_password"
+    	}
+	,
+        "bodyPatterns": [ {
+          "matches": "grant_type=client_credentials"
+      	}]
+        
+      }
+      ,
+      "response": {
+        "status": 200,
+          "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+          "bodyFileName": "valid_token.json"
+
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/api/token",
+         "basicAuthCredentials" : {
+      	"username" : "",
+      	"password" : ""
+    	}
+	,
+        "bodyPatterns": [ {
+          "matches": "grant_type=client_credentials"
+      	}]
+        
+      }
+      ,
+      "response": {
+        "status": 400,
+          "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+          "bodyFileName": "invalid_token.json"
+
+      }
+    }
+    ,
+    {
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/v1/browse/new-releases",
+        "headers" : {
+        "authorization" : {
+        "matches" : "Bearer ylbRIchZNNoB4YnkpyPkWWcsbL58"
+        }
+        },        
+        "queryParameters": {
+                "country": {
+                    "equalTo": "IN"
+                },
+		"limit": {
+                    "equalTo": "5"
+                }
+            }
+      }
+      ,
+      "response": {
+        "status": 200,
+          "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+          "bodyFileName": "releases.json"
+
+      }
+    }
+    ,
+    {
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/v1/browse/new-releases",
+        "headers" : {
+        "authorization" : {
+        "matches" : "Bearer"
+        }
+        },        
+        "queryParameters": {
+                "country": {
+                    "equalTo": "IN"
+                },
+		"limit": {
+                    "equalTo": "5"
+                }
+            }
+      }
+      ,
+      "response": {
+        "status": 400,
+          "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+          "bodyFileName": "invalid_token.json"
+
+      }
+    }
+  ]
+}

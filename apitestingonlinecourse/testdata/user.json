@@ -1,0 +1,22 @@
+[
+{
+"id":1,
+"name":"test1",
+"address":"bangalore",
+"phone" : "91-342432432"
+}
+,
+{
+"id":2,
+"name":"test2",
+"address":"chennai",
+"phone" : "91-5454543354"
+}
+,
+{
+"id":3,
+"name":"test3",
+"address":"assam",
+"phone" : "91-43543543"
+}
+]

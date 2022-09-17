@@ -1,0 +1,12 @@
+## Performance testing of microservices with Postmand and K6
+### k6 installation
+- https://k6.io/docs/getting-started/installation/ 
+
+### k6 API documentation
+- https://test-api.k6.io/
+
+### k6 Quick Start
+- https://k6.io/blog/load-testing-with-postman-collections/#load-testing-metrics-for-measuring-performance
+
+## Performance testing guide
+- https://www.slideshare.net/ravkiran7/software-performance-testing-handbook-a-comprehensive-guide-for-begineers

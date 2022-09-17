@@ -1,0 +1,17 @@
+HTTP Overview:
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
+
+URI vs URL
+- URI (Uniform Resource Identifier - String to identify a resource running in some server for rest services)
+- URL (Uniform Resource Locator - Locator or address of an resource)
+- https://danielmiessler.com/study/difference-between-uri-url/
+
+Example of URL:
+https://www.indiatimes.com/technology/news/iit-delhi-alumnus-school-of-artificial-intelligence-554042.html (static html page)
+
+- location in server technology/news folder and file name is Nov/iit-delhi-alumnus-school-of-artificial-intelligence-554042.html
+- https://im.indiatimes.in/content/2021/Nov/1_618e74e693727.jpg (static image)
+location in server content/2021/Nov folder and file name is Nov/1_618e74e693727.jpg
+
+Example of URI:
+https://crudcrud.com/api/uniqueid/unicorns

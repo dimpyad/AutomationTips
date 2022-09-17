@@ -1,0 +1,9 @@
+## Test double concepts
+- https://martinfowler.com/bliki/TestDouble.html
+- https://medium.com/@kashwin95kumar/what-do-you-mean-by-test-doubles-b57a2a792973
+- https://javapointers.com/java/unit-test/difference-between-spy-and-mock-in-mockito/
+
+
+## API mocking
+- https://www.soapui.org/learn/mocking/what-is-api-mocking/
+- https://nordicapis.com/10-tools-to-mock-http-requests/

@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "dbdb55de-0ac7-4cd1-832d-6f650e993673",
+		"name": "Day_10_FakerLib",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create new user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nameprefix\": {{$randomNamePrefix}},\r\n    \"firstname\": {{$randomFirstName}},\r\n    \"lastname\": {{$randomLastName}},\r\n    \"phone\": {{$randomPhoneNumber}},\r\n    \"address\": {{$randomStreetAddress}},\r\n    \"email\" : {{$randomEmail}}\r\n}"
+				},
+				"url": {
+					"raw": "http://my_domain/user",
+					"protocol": "http",
+					"host": [
+						"my_domain"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

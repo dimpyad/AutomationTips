@@ -1,0 +1,5 @@
+## MQTT Concepts
+- https://nostdahl.com/2019/07/16/mqtt-for-dummies/
+- [HiveMQPublic broker](https://www.hivemq.com/public-mqtt-broker/)
+- [MQTT Android App](https://play.google.com/store/apps/details?id=com.ravendmaster.linearmqttdashboard&hl=en_IN&gl=US)
+- [MQTTClient](https://www.baeldung.com/java-mqtt-client)

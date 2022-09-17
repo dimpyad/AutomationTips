@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "aac016c5-f795-4c93-930d-f315d9674358",
+		"name": "Day_06_MediaType",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/bijit/Desktop/Dimpy-Adhikary.jpg"
+					}
+				},
+				"url": {
+					"raw": "https://localhost/usermultipart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"usermultipart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "x-www-form-urlencoded",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "dimpy",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "bangalore",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost/userform",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"userform"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "x-www-form-urlencoded",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "dimpy",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "bangalore",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost/userform",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"userform"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Multipart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Dimpy",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/bijit/Desktop/Dimpy-Adhikary.jpg"
+						},
+						{
+							"key": "address",
+							"value": "{\"Address1\": \"#2333\", \"City\": \"Bangalore\"}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "orderdetails",
+							"value": "<order><pizza> <topping>cheese</topping></pizza></order>",
+							"contentType": "application/xml",
+							"type": "text"
+						},
+						{
+							"key": "invoice",
+							"contentType": "application/zip",
+							"type": "file",
+							"src": "/C:/Users/bijit/Desktop/image2.zip"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost/usermultipart",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"usermultipart"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

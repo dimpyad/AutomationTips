@@ -1,0 +1,17 @@
+HTTP methods or VERBS
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
+How CRUD Operations work (Mapping between HTTP requests to Databse)
+- GET to Select SQL Query
+- POST to Create SQL Query
+- PUT to Update SQL Query
+- DELETE to Delete SQL Query
+
+HTTP Safe and Unsafe methods
+- https://datatracker.ietf.org/doc/html/rfc7231#section-4.2.1
+
+HTTP Idempotent and Non Idempotent methods 
+- https://developer.mozilla.org/en-US/docs/Glossary/Idempotent
+
+HTTP Status Codes
+- https://datatracker.ietf.org/doc/html/rfc7231#section-6

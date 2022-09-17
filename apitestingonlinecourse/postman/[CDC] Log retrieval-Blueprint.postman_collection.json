@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "0d90d9a8-1a88-4572-84fc-8ea35178db6e",
+		"name": "[CDC] Log retrieval-Blueprint",
+		"description": "This is the blueprint collection for the Postman Engineering blog post on [Consumer-driven contracts](https://medium.com/postman-engineering/consumer-driven-contract-testing-using-postman-f3580dba5370). This blueprint describes a hypothetical audit service with a single endpoint that returns list of log entries from a hypothetical centralised log storage.\n\nConsumers of this service (again, hypothetical) will build contracts against this blueprint and assert only on the properties they need.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch logs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/logs",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logs"
+					]
+				},
+				"description": "Endpoint to retrieve hypothetical log data."
+			},
+			"response": [
+				{
+					"name": "Latest logs across all services Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/logs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logs"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"count\": 5,\n  \"entries\": [\n    {\n      \"serviceName\": \"foo\",\n      \"timestamp\": 1540206226229,\n      \"description\": \"Received foo request from user 100\"\n    },\n    {\n      \"serviceName\": \"bar\",\n      \"timestamp\": 1540206226121,\n      \"description\": \"Sent email to user 99\"\n    },\n    {\n      \"serviceName\": \"foo\",\n      \"timestamp\": 154020622502,\n      \"description\": \"Received foo request from user 10\"\n    },\n    {\n      \"serviceName\": \"baz\",\n      \"timestamp\": 1540206223230,\n      \"description\": \"Activated user 101\"\n    },\n    {\n      \"serviceName\": \"bar\",\n      \"timestamp\": 1540206222126,\n      \"description\": \"Error sending email to user 10\"\n    }\n  ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

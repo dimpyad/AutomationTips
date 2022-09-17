@@ -1,0 +1,7 @@
+## Karate DSL Mocking
+- https://github.com/karatelabs/karate/blob/master/karate-demo/src/test/java/mock/proxy/demo-mock.feature
+
+## Karate DSL Demo Examples
+- https://github.com/karatelabs/karate/tree/master/examples
+- https://github.com/karatelabs/karate/tree/master/karate-demo/src/test/java/demo
+- https://venkatramanareddy.github.io/karate/#data-driven-tests

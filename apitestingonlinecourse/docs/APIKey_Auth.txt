@@ -1,0 +1,3 @@
+# API Key authentication
+- Create a free account in https://weatherstack.com/
+- API link - http://api.weatherstack.com/current?access_key={{weatherstack_api}}&query=Bangalore

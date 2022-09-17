@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "bfd63f25-dbdb-4f6b-b451-924ee9899976",
+		"name": "Day_12: GraphQL",
+		"description": "## Instructions for Day 19: GraphQL\n\n1. **Get the challenge:** Fork [the parent collection `Day 19: GraphQL`](https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-bd7ff4ba-c209-47b3-85d7-514a7ce0f3bf) from the main workspace to your own public workspace.\n2. **Read the documentation:** In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.\n3. **Submit your solution:** Select the second folder `Submit your solution` and follow the instructions in the documentation to validate your solution.\n\n## Concepts covered\n- [Querying with GraphQL](https://learning.postman.com/docs/sending-requests/supported-api-frameworks/graphql/)\n\n## Additional resources\n- [GraphQL demo](https://youtu.be/7pUbezVADQs) video\n- [Working with GraphQL](https://explore.postman.com/templates/1692/working-with-graphql) template\n- [REST, SOAP, GraphQL — Gesundheit!](https://medium.com/better-practices/rest-soap-graphql-gesundheit-6544053f65cf)\n- [GraphQL vs REST: Overview](https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/)\n- [Public GraphQL APIs](https://github.com/APIs-guru/graphql-apis)\n\n## Next challenge\n\n- [Documentation](https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-0f00502d-d2d8-45fc-bd69-0fbb68eb5733)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getArtist",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/graphql",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getByArtist($name: String!) {\r\n queryArtists (byName: $name) {\r\n     name\r\n     image\r\n     albums {\r\n         name\r\n     }\r\n }\r\n}",
+						"variables": "{\r\n  \"name\": \"Britney Spears\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://spotify-graphql-server.herokuapp.com/graphql",
+					"protocol": "https",
+					"host": [
+						"spotify-graphql-server",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  user(id: 2) {\r\n    id\r\n    username\r\n    email\r\n    address {\r\n      geo {\r\n        lat\r\n        lng\r\n      }\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://graphqlzero.almansi.me/api",
+					"protocol": "https",
+					"host": [
+						"graphqlzero",
+						"almansi",
+						"me"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation (\r\n  $input: CreatePostInput!\r\n) {\r\n  createPost(input: $input) {\r\n    id\r\n    title\r\n    body\r\n  }\r\n}",
+						"variables": "{\r\n  \"input\": {\r\n    \"title\": \"GraphQA - Sample Post\",\r\n    \"body\": \"This post is created for testing purpose.\"\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://graphqlzero.almansi.me/api",
+					"protocol": "https",
+					"host": [
+						"graphqlzero",
+						"almansi",
+						"me"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPost",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,6 @@
+{
+    "error": {
+        "status": 400,
+        "message": "Only valid bearer authentication supported"
+    }
+}

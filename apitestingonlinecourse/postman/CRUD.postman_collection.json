@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "aee7346b-82fc-4b2b-8cb0-c35c4acca4e1",
+		"name": "Day_02_CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crudcrud Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/bijit/AppData/Local/Postman/app-9.1.3/Squirrel-UpdateSelf.log"
+					}
+				},
+				"url": {
+					"raw": "https://crudcrud.com/api/c47b67c452494d37a659dc2d4dacc48d/unicorns",
+					"protocol": "https",
+					"host": [
+						"crudcrud",
+						"com"
+					],
+					"path": [
+						"api",
+						"c47b67c452494d37a659dc2d4dacc48d",
+						"unicorns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crudcrud Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\":\"Sparkle Angel_newname\", \"age\":12, \"colour\":\"blue\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://crudcrud.com/api/c47b67c452494d37a659dc2d4dacc48d/unicorns/6192208197069d03e84904b7",
+					"protocol": "https",
+					"host": [
+						"crudcrud",
+						"com"
+					],
+					"path": [
+						"api",
+						"c47b67c452494d37a659dc2d4dacc48d",
+						"unicorns",
+						"6192208197069d03e84904b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crudcrud Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://crudcrud.com/api/c47b67c452494d37a659dc2d4dacc48d/unicorns/6192208197069d03e84904b7",
+					"protocol": "https",
+					"host": [
+						"crudcrud",
+						"com"
+					],
+					"path": [
+						"api",
+						"c47b67c452494d37a659dc2d4dacc48d",
+						"unicorns",
+						"6192208197069d03e84904b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crudcrud GET unicons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://crudcrud.com/api/c47b67c452494d37a659dc2d4dacc48d/unicorns",
+					"protocol": "https",
+					"host": [
+						"crudcrud",
+						"com"
+					],
+					"path": [
+						"api",
+						"c47b67c452494d37a659dc2d4dacc48d",
+						"unicorns"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,18 @@
+# REST vs GraphQL
+- https://blog.api.rakuten.net/graphql-vs-rest/
+
+# GraphQL Schema 
+- https://graphql.org/learn/schema/ 
+
+# GraphQL Architecture
+- https://www.howtographql.com/basics/3-big-picture/
+
+# GraphQL playground
+- https://graphqlzero.almansi.me/api
+
+# Spring boot graphQL example
+- https://www.baeldung.com/spring-graphql
+- https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-libraries
+
+# Other resources
+- https://netflix.github.io/falcor/

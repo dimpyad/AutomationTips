@@ -1,0 +1,6 @@
+## Demo API Gateway
+How to build and run the application
+- git clone https://github.com/kasvith/simple-microservice-example
+- run the command docker-compose up under simple-microservice-example
+- Front end will be running on http://localhost:8080/
+- Backend status can be checked using http://localhost:3000/api/status

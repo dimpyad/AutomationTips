@@ -1,0 +1,7 @@
+# API Design Styles
+- Tunnel Style - Calling Procedure (RPC) - Ex. gRPC
+- Resource Style - URI points to resource - Ex. REST
+- Hypermedia Style - API with hypermedia features - Ex.Web
+- Query Style - API with data model which can be queried - Ex. GraphQL
+- Event-based Style - An API is a collection of events published by providers and subscribed to by consumers. - Ex. Message Queue
+- https://blog.axway.com/api-creation/api-styles-rest-openapi-http-grpc-graphql-and-kafka

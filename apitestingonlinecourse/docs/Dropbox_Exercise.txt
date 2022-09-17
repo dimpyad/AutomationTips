@@ -1,0 +1,7 @@
+# Create a folder in Dropbox and Upload a local file
+ 
+## Create folder in Dropbox API reference
+- API document link https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder
+
+## Upload a file in Dropbox API reference
+- API document link - https://www.dropbox.com/developers/documentation/http/documentation#files-upload

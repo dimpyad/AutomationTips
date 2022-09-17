@@ -1,0 +1,20 @@
+## Kafka
+- https://kafka.apache.org/documentation/#gettingStarted
+
+## Installation 
+- [Direct Download link](https://kafka.apache.org/downloads)
+- [Windows installation Guide](https://dzone.com/articles/running-apache-kafka-on-windows-os)
+- [Docker image](https://github.com/wurstmeister/kafka-docker)
+- [Kafka-Manger UI](https://zablo.net/blog/post/setup-apache-kafka-in-docker-on-windows/)
+
+## Kafka case studies
+- [LinkIn](https://engineering.linkedin.com/blog/2019/apache-kafka-trillion-messages)
+- [Netflix](https://www.confluent.io/blog/how-kafka-is-used-by-netflix/)
+- [Uber](https://eng.uber.com/kafka-async-queuing-with-consumer-proxy/)
+
+## Kafka testing tools
+- [Jmeter](https://www.blazemeter.com/blog/apache-kafka-how-to-load-test-with-jmeter)
+- [ReadyAPI](https://support.smartbear.com/readyapi/docs/testing/kafka/index.html)
+- [ZeroCode](https://platform.deloitte.com.au/articles/automate-kafka-testing)
+- [OffsetExplorer](https://kafkatool.com/download.html)
+- [JavaClient](https://www.instaclustr.com/support/documentation/kafka/accessing-and-using-kafka/use-kafka-with-java/)

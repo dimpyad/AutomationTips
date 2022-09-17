@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "e1dd99b5-bd6a-4423-87a7-c3ee9f198ce1",
+		"name": "[CDC]Consumer_1-Contract",
+		"description": "This is the blueprint collection for the Postman Engineering blog post on [Consumer-driven contracts](https://medium.com/postman-engineering/consumer-driven-contract-testing-using-postman-f3580dba5370). This blueprint describes a hypothetical audit service with a single endpoint that returns list of log entries from a hypothetical centralised log storage.\n\nConsumers of this service (again, hypothetical) will build contracts against this blueprint and assert only on the properties they need.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch logs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Define the schema expected in response\r",
+							"var responseSchema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"count\": {\r",
+							"            \"type\": \"number\"\r",
+							"        },\r",
+							"        \"entries\": {\r",
+							"            \"type\": \"array\",\r",
+							"            \"items\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"properties\": {\r",
+							"                    \"serverName\": {\r",
+							"                        \"type\": \"string\"\r",
+							"                    }\r",
+							"                }\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"}\r",
+							"// Get response data as JSON\r",
+							"var jsonData = pm.response.json();\r",
+							"// Test for response data structure\r",
+							"pm.test('Ensure expected response structure', function () {\r",
+							"    var validation = tv4.validate(jsonData, responseSchema);\r",
+							"    pm.expect(validation).to.be.true;\r",
+							"});\r",
+							"\r",
+							"pm.test('Esure expected 200 status code', function () {\r",
+							"    var statuscode = pm.response.code;\r",
+							"    pm.expect(statuscode).to.eql(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/logs",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logs"
+					]
+				},
+				"description": "Endpoint to retrieve hypothetical log data."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

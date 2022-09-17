@@ -1,0 +1,4 @@
+## API chaining
+- https://learning.postman.com/docs/running-collections/building-workflows/
+- https://blog.postman.com/extracting-data-from-responses-and-chaining-requests/
+- https://blog.postman.com/how-to-make-money-using-postman-chaining-requests/

@@ -1,0 +1,15 @@
+# HTTP authentication and authorization
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization
+
+## Basic Auth
+- https://docs.oracle.com/cd/E24191_01/common/tutorials/authn_http_basic.html
+
+## Digest Auth
+- https://blog.wildix.com/basic-digest-authentication/
+
+## Form Based Auth
+- https://docs.oracle.com/cd/E19798-01/821-1841/bncbq/index.html
+
+## API Key Based
+- https://blog.stoplight.io/api-keys-best-practices-to-authenticate-apis

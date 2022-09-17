@@ -1,0 +1,3 @@
+Reference links for code walkthrough for basic CRUD operation using SpringBoot
+- https://github.com/luckyp71/Springboot-MySQL-Docker
+- https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-crud

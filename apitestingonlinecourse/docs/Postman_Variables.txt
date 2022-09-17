@@ -1,0 +1,35 @@
+# Understanding postman variables
+## Variable scope in postman
+- Global
+- Collection
+- Environment
+- Local
+- Data
+
+## Global variables
+### When to use:
+- Sharing data between multiple collection
+- Use only need basis
+- Delete unused global variables
+
+## Collection variables
+### When to Use?
+- Working with a single environment
+- For storing URLs / authentication credentials
+
+## Environment Variables
+### When to Use?
+- Storing environment-specific information (like URLs, authentication credentials) when in case of multiple environments (localhost, dev, stage, testing, production)
+- Do not use environment variables if you only have one environment, use collection variables. 
+- Clear / remove variables once you do not need them
+
+## Local Variables
+### When to Use?
+- Can be used in pre-request or test script 
+
+## Data Variables
+- Data variables can be set from a CSV or a JSON file 
+- They will exist only during the execution of an iteration.
+
+## Reference link
+https://medium.com/apis-with-valentine/demystifying-postman-variables-how-and-when-to-use-different-variable-scopes-66ad8dc11200

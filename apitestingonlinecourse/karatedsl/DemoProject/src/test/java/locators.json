@@ -1,0 +1,10 @@
+{
+  "homepage" : {
+    "system" : "//span[contains(text(),'System')]"
+  },
+  "systempage" : {
+    "searchInput" : "//input[@placeholder='Search for...']",
+    "searchIcon" :  "//button[@class='btn btn-default']//span[@class='fa fa-search']",
+    "searchResult" : "//h5[contains(text(),'Results')]"
+  }
+}

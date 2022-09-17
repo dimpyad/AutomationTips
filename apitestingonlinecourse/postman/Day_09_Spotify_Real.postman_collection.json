@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "54ce1015-a788-405d-b1e2-db82d2334c3c",
+		"name": "Day_09_Spotify_Real",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuthUsingClientCredential",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"token\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{client_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{client_id}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{token_url}}/api/token",
+					"host": [
+						"{{token_url}}"
+					],
+					"path": [
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "AuthUsingClientCredential",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{token_url}}/api/token",
+							"protocol": "https",
+							"host": [
+								"{{token_url}}"
+							],
+							"path": [
+								"api",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 29 Nov 2021 10:02:47 GMT"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "sp-trace-id",
+							"value": "d7b9d20a1316b53f"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "server",
+							"value": "envoy"
+						},
+						{
+							"key": "Via",
+							"value": "HTTP/2 edgeproxy, 1.1 google"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "clear"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"tydc1rDtvdTqYf3k\",\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 3600\n}"
+				}
+			]
+		},
+		{
+			"name": "NewRelease",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"postman.setNextRequest(null)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var token = pm.environment.get(\"token\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{real_url}}/v1/browse/new-releases?limit=5&country=IN",
+					"host": [
+						"{{real_url}}"
+					],
+					"path": [
+						"v1",
+						"browse",
+						"new-releases"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "country",
+							"value": "IN"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "NewRelease",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.spotify.com/v1/browse/new-releases?limit=5&country=IN",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"browse",
+								"new-releases"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "IN"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "cache-control",
+							"value": "private, max-age=600"
+						},
+						{
+							"key": "vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "x-robots-tag",
+							"value": "noindex, nofollow"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-headers",
+							"value": "Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "GET, POST, OPTIONS, PUT, DELETE, PATCH"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-max-age",
+							"value": "604800"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "date",
+							"value": "Mon, 29 Nov 2021 10:02:36 GMT"
+						},
+						{
+							"key": "server",
+							"value": "envoy"
+						},
+						{
+							"key": "Via",
+							"value": "HTTP/2 edgeproxy, 1.1 google"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "clear"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"albums\": {\n        \"href\": \"https://api.spotify.com/v1/browse/new-releases?country=IN&offset=0&limit=5\",\n        \"items\": [\n            {\n                \"album_type\": \"album\",\n                \"artists\": [\n                    {\n                        \"external_urls\": {\n                            \"spotify\": \"https://open.spotify.com/artist/7vk5e3vY1uw9plTHJAMwjN\"\n                        },\n                        \"href\": \"https://api.spotify.com/v1/artists/7vk5e3vY1uw9plTHJAMwjN\",\n                        \"id\": \"7vk5e3vY1uw9plTHJAMwjN\",\n                        \"name\": \"Alan Walker\",\n                        \"type\": \"artist\",\n                        \"uri\": \"spotify:artist:7vk5e3vY1uw9plTHJAMwjN\"\n                    }\n                ],\n                \"available_markets\": [\n                    \"AD\",\n                    \"AE\",\n                    \"AG\",\n                    \"AL\",\n                    \"AM\",\n                    \"AO\",\n                    \"AR\",\n                    \"AT\",\n                    \"AU\",\n                    \"AZ\",\n                    \"BA\",\n                    \"BB\",\n                    \"BD\",\n                    \"BE\",\n                    \"BF\",\n                    \"BG\",\n                    \"BH\",\n                    \"BI\",\n                    \"BJ\",\n                    \"BN\",\n                    \"BO\",\n                    \"BR\",\n                    \"BS\",\n                    \"BT\",\n                    \"BW\",\n                    \"BY\",\n                    \"BZ\",\n                    \"CA\",\n                    \"CD\",\n                    \"CG\",\n                    \"CH\",\n                    \"CI\",\n                    \"CL\",\n                    \"CM\",\n                    \"CO\",\n                    \"CR\",\n                    \"CV\",\n                    \"CW\",\n                    \"CY\",\n                    \"CZ\",\n                    \"DE\",\n                    \"DJ\",\n                    \"DK\",\n                    \"DM\",\n                    \"DO\",\n                    \"DZ\",\n                    \"EC\",\n                    \"EE\",\n                    \"EG\",\n                    \"ES\",\n                    \"FI\",\n                    \"FJ\",\n                    \"FM\",\n                    \"FR\",\n                    \"GA\",\n                    \"GB\",\n                    \"GD\",\n                    \"GE\",\n                    \"GH\",\n                    \"GM\",\n                    \"GN\",\n                    \"GQ\",\n                    \"GR\",\n                    \"GT\",\n                    \"GW\",\n                    \"GY\",\n                    \"HK\",\n                    \"HN\",\n                    \"HR\",\n                    \"HT\",\n                    \"HU\",\n                    \"ID\",\n                    \"IE\",\n                    \"IL\",\n                    \"IN\",\n                    \"IQ\",\n                    \"IS\",\n                    \"IT\",\n                    \"JM\",\n                    \"JO\",\n                    \"JP\",\n                    \"KE\",\n                    \"KG\",\n                    \"KH\",\n                    \"KI\",\n                    \"KM\",\n                    \"KN\",\n                    \"KR\",\n                    \"KW\",\n                    \"KZ\",\n                    \"LA\",\n                    \"LB\",\n                    \"LC\",\n                    \"LI\",\n                    \"LK\",\n                    \"LR\",\n                    \"LS\",\n                    \"LT\",\n                    \"LU\",\n                    \"LV\",\n                    \"LY\",\n                    \"MA\",\n                    \"MC\",\n                    \"MD\",\n                    \"ME\",\n                    \"MG\",\n                    \"MH\",\n                    \"MK\",\n                    \"ML\",\n                    \"MN\",\n                    \"MO\",\n                    \"MR\",\n                    \"MT\",\n                    \"MU\",\n                    \"MV\",\n                    \"MW\",\n                    \"MX\",\n                    \"MY\",\n                    \"MZ\",\n                    \"NA\",\n                    \"NE\",\n                    \"NG\",\n                    \"NI\",\n                    \"NL\",\n                    \"NO\",\n                    \"NP\",\n                    \"NR\",\n                    \"NZ\",\n                    \"OM\",\n                    \"PA\",\n                    \"PE\",\n                    \"PG\",\n                    \"PH\",\n                    \"PK\",\n                    \"PL\",\n                    \"PS\",\n                    \"PT\",\n                    \"PW\",\n                    \"PY\",\n                    \"QA\",\n                    \"RO\",\n                    \"RS\",\n                    \"RU\",\n                    \"RW\",\n                    \"SA\",\n                    \"SB\",\n                    \"SC\",\n                    \"SE\",\n                    \"SG\",\n                    \"SI\",\n                    \"SK\",\n                    \"SL\",\n                    \"SM\",\n                    \"SN\",\n                    \"SR\",\n                    \"ST\",\n                    \"SV\",\n                    \"SZ\",\n                    \"TD\",\n                    \"TG\",\n                    \"TH\",\n                    \"TJ\",\n                    \"TL\",\n                    \"TN\",\n                    \"TO\",\n                    \"TR\",\n                    \"TT\",\n                    \"TV\",\n                    \"TW\",\n                    \"TZ\",\n                    \"UA\",\n                    \"UG\",\n                    \"US\",\n                    \"UY\",\n                    \"UZ\",\n                    \"VC\",\n                    \"VE\",\n                    \"VN\",\n                    \"VU\",\n                    \"WS\",\n                    \"XK\",\n                    \"ZA\",\n                    \"ZM\",\n                    \"ZW\"\n                ],\n                \"external_urls\": {\n                    \"spotify\": \"https://open.spotify.com/album/3KrkQ77DF9OUB0aOzKFYOF\"\n                },\n                \"href\": \"https://api.spotify.com/v1/albums/3KrkQ77DF9OUB0aOzKFYOF\",\n                \"id\": \"3KrkQ77DF9OUB0aOzKFYOF\",\n                \"images\": [\n                    {\n                        \"height\": 640,\n                        \"url\": \"https://i.scdn.co/image/ab67616d0000b273df9a35baaa98675256b35177\",\n                        \"width\": 640\n                    },\n                    {\n                        \"height\": 300,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00001e02df9a35baaa98675256b35177\",\n                        \"width\": 300\n                    },\n                    {\n                        \"height\": 64,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00004851df9a35baaa98675256b35177\",\n                        \"width\": 64\n                    }\n                ],\n                \"name\": \"World Of Walker\",\n                \"release_date\": \"2021-11-26\",\n                \"release_date_precision\": \"day\",\n                \"total_tracks\": 15,\n                \"type\": \"album\",\n                \"uri\": \"spotify:album:3KrkQ77DF9OUB0aOzKFYOF\"\n            },\n            {\n                \"album_type\": \"single\",\n                \"artists\": [\n                    {\n                        \"external_urls\": {\n                            \"spotify\": \"https://open.spotify.com/artist/6lF7uyAQEbDrnFNAXyyQQ6\"\n                        },\n                        \"href\": \"https://api.spotify.com/v1/artists/6lF7uyAQEbDrnFNAXyyQQ6\",\n                        \"id\": \"6lF7uyAQEbDrnFNAXyyQQ6\",\n                        \"name\": \"Thermal And A Quarter\",\n                        \"type\": \"artist\",\n                        \"uri\": \"spotify:artist:6lF7uyAQEbDrnFNAXyyQQ6\"\n                    }\n                ],\n                \"available_markets\": [\n                    \"AD\",\n                    \"AE\",\n                    \"AG\",\n                    \"AL\",\n                    \"AM\",\n                    \"AO\",\n                    \"AR\",\n                    \"AT\",\n                    \"AU\",\n                    \"AZ\",\n                    \"BA\",\n                    \"BB\",\n                    \"BD\",\n                    \"BE\",\n                    \"BF\",\n                    \"BG\",\n                    \"BH\",\n                    \"BI\",\n                    \"BJ\",\n                    \"BN\",\n                    \"BO\",\n                    \"BR\",\n                    \"BS\",\n                    \"BT\",\n                    \"BW\",\n                    \"BY\",\n                    \"BZ\",\n                    \"CA\",\n                    \"CD\",\n                    \"CG\",\n                    \"CH\",\n                    \"CI\",\n                    \"CL\",\n                    \"CM\",\n                    \"CO\",\n                    \"CR\",\n                    \"CV\",\n                    \"CW\",\n                    \"CY\",\n                    \"CZ\",\n                    \"DE\",\n                    \"DJ\",\n                    \"DK\",\n                    \"DM\",\n                    \"DO\",\n                    \"DZ\",\n                    \"EC\",\n                    \"EE\",\n                    \"EG\",\n                    \"ES\",\n                    \"FI\",\n                    \"FJ\",\n                    \"FM\",\n                    \"FR\",\n                    \"GA\",\n                    \"GB\",\n                    \"GD\",\n                    \"GE\",\n                    \"GH\",\n                    \"GM\",\n                    \"GN\",\n                    \"GQ\",\n                    \"GR\",\n                    \"GT\",\n                    \"GW\",\n                    \"GY\",\n                    \"HK\",\n                    \"HN\",\n                    \"HR\",\n                    \"HT\",\n                    \"HU\",\n                    \"ID\",\n                    \"IE\",\n                    \"IL\",\n                    \"IN\",\n                    \"IQ\",\n                    \"IS\",\n                    \"IT\",\n                    \"JM\",\n                    \"JO\",\n                    \"JP\",\n                    \"KE\",\n                    \"KG\",\n                    \"KH\",\n                    \"KI\",\n                    \"KM\",\n                    \"KN\",\n                    \"KR\",\n                    \"KW\",\n                    \"KZ\",\n                    \"LA\",\n                    \"LB\",\n                    \"LC\",\n                    \"LI\",\n                    \"LK\",\n                    \"LR\",\n                    \"LS\",\n                    \"LT\",\n                    \"LU\",\n                    \"LV\",\n                    \"LY\",\n                    \"MA\",\n                    \"MC\",\n                    \"MD\",\n                    \"ME\",\n                    \"MG\",\n                    \"MH\",\n                    \"MK\",\n                    \"ML\",\n                    \"MN\",\n                    \"MO\",\n                    \"MR\",\n                    \"MT\",\n                    \"MU\",\n                    \"MV\",\n                    \"MW\",\n                    \"MX\",\n                    \"MY\",\n                    \"MZ\",\n                    \"NA\",\n                    \"NE\",\n                    \"NG\",\n                    \"NI\",\n                    \"NL\",\n                    \"NO\",\n                    \"NP\",\n                    \"NR\",\n                    \"NZ\",\n                    \"OM\",\n                    \"PA\",\n                    \"PE\",\n                    \"PG\",\n                    \"PH\",\n                    \"PK\",\n                    \"PL\",\n                    \"PS\",\n                    \"PT\",\n                    \"PW\",\n                    \"PY\",\n                    \"QA\",\n                    \"RO\",\n                    \"RS\",\n                    \"RU\",\n                    \"RW\",\n                    \"SA\",\n                    \"SB\",\n                    \"SC\",\n                    \"SE\",\n                    \"SG\",\n                    \"SI\",\n                    \"SK\",\n                    \"SL\",\n                    \"SM\",\n                    \"SN\",\n                    \"SR\",\n                    \"ST\",\n                    \"SV\",\n                    \"SZ\",\n                    \"TD\",\n                    \"TG\",\n                    \"TH\",\n                    \"TJ\",\n                    \"TL\",\n                    \"TN\",\n                    \"TO\",\n                    \"TR\",\n                    \"TT\",\n                    \"TV\",\n                    \"TW\",\n                    \"TZ\",\n                    \"UA\",\n                    \"UG\",\n                    \"US\",\n                    \"UY\",\n                    \"UZ\",\n                    \"VC\",\n                    \"VE\",\n                    \"VN\",\n                    \"VU\",\n                    \"WS\",\n                    \"XK\",\n                    \"ZA\",\n                    \"ZM\",\n                    \"ZW\"\n                ],\n                \"external_urls\": {\n                    \"spotify\": \"https://open.spotify.com/album/414ncNsZZbp83LU3VtH8n2\"\n                },\n                \"href\": \"https://api.spotify.com/v1/albums/414ncNsZZbp83LU3VtH8n2\",\n                \"id\": \"414ncNsZZbp83LU3VtH8n2\",\n                \"images\": [\n                    {\n                        \"height\": 640,\n                        \"url\": \"https://i.scdn.co/image/ab67616d0000b273b30668f66ed9ba61c68a5a47\",\n                        \"width\": 640\n                    },\n                    {\n                        \"height\": 300,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00001e02b30668f66ed9ba61c68a5a47\",\n                        \"width\": 300\n                    },\n                    {\n                        \"height\": 64,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00004851b30668f66ed9ba61c68a5a47\",\n                        \"width\": 64\n                    }\n                ],\n                \"name\": \"Inside Out\",\n                \"release_date\": \"2021-11-26\",\n                \"release_date_precision\": \"day\",\n                \"total_tracks\": 1,\n                \"type\": \"album\",\n                \"uri\": \"spotify:album:414ncNsZZbp83LU3VtH8n2\"\n            },\n            {\n                \"album_type\": \"single\",\n                \"artists\": [\n                    {\n                        \"external_urls\": {\n                            \"spotify\": \"https://open.spotify.com/artist/1U1el3k54VvEUzo3ybLPlM\"\n                        },\n                        \"href\": \"https://api.spotify.com/v1/artists/1U1el3k54VvEUzo3ybLPlM\",\n                        \"id\": \"1U1el3k54VvEUzo3ybLPlM\",\n                        \"name\": \"Kali Uchis\",\n                        \"type\": \"artist\",\n                        \"uri\": \"spotify:artist:1U1el3k54VvEUzo3ybLPlM\"\n                    },\n                    {\n                        \"external_urls\": {\n                            \"spotify\": \"https://open.spotify.com/artist/1i8SpTcr7yvPOmcqrbnVXY\"\n                        },\n                        \"href\": \"https://api.spotify.com/v1/artists/1i8SpTcr7yvPOmcqrbnVXY\",\n                        \"id\": \"1i8SpTcr7yvPOmcqrbnVXY\",\n                        \"name\": \"Ozuna\",\n                        \"type\": \"artist\",\n                        \"uri\": \"spotify:artist:1i8SpTcr7yvPOmcqrbnVXY\"\n                    }\n                ],\n                \"available_markets\": [\n                    \"AD\",\n                    \"AE\",\n                    \"AG\",\n                    \"AL\",\n                    \"AM\",\n                    \"AO\",\n                    \"AR\",\n                    \"AT\",\n                    \"AU\",\n                    \"AZ\",\n                    \"BA\",\n                    \"BB\",\n                    \"BD\",\n                    \"BE\",\n                    \"BF\",\n                    \"BG\",\n                    \"BH\",\n                    \"BI\",\n                    \"BJ\",\n                    \"BN\",\n                    \"BO\",\n                    \"BR\",\n                    \"BS\",\n                    \"BT\",\n                    \"BW\",\n                    \"BY\",\n                    \"BZ\",\n                    \"CA\",\n                    \"CD\",\n                    \"CG\",\n                    \"CH\",\n                    \"CI\",\n                    \"CL\",\n                    \"CM\",\n                    \"CO\",\n                    \"CR\",\n                    \"CV\",\n                    \"CW\",\n                    \"CY\",\n                    \"CZ\",\n                    \"DE\",\n                    \"DJ\",\n                    \"DK\",\n                    \"DM\",\n                    \"DO\",\n                    \"DZ\",\n                    \"EC\",\n                    \"EE\",\n                    \"EG\",\n                    \"ES\",\n                    \"FI\",\n                    \"FJ\",\n                    \"FM\",\n                    \"FR\",\n                    \"GA\",\n                    \"GB\",\n                    \"GD\",\n                    \"GE\",\n                    \"GH\",\n                    \"GM\",\n                    \"GN\",\n                    \"GQ\",\n                    \"GR\",\n                    \"GT\",\n                    \"GW\",\n                    \"GY\",\n                    \"HK\",\n                    \"HN\",\n                    \"HR\",\n                    \"HT\",\n                    \"HU\",\n                    \"ID\",\n                    \"IE\",\n                    \"IL\",\n                    \"IN\",\n                    \"IQ\",\n                    \"IS\",\n                    \"IT\",\n                    \"JM\",\n                    \"JO\",\n                    \"JP\",\n                    \"KE\",\n                    \"KG\",\n                    \"KH\",\n                    \"KI\",\n                    \"KM\",\n                    \"KN\",\n                    \"KR\",\n                    \"KW\",\n                    \"KZ\",\n                    \"LA\",\n                    \"LB\",\n                    \"LC\",\n                    \"LI\",\n                    \"LK\",\n                    \"LR\",\n                    \"LS\",\n                    \"LT\",\n                    \"LU\",\n                    \"LV\",\n                    \"LY\",\n                    \"MA\",\n                    \"MC\",\n                    \"MD\",\n                    \"ME\",\n                    \"MG\",\n                    \"MH\",\n                    \"MK\",\n                    \"ML\",\n                    \"MN\",\n                    \"MO\",\n                    \"MR\",\n                    \"MT\",\n                    \"MU\",\n                    \"MV\",\n                    \"MW\",\n                    \"MX\",\n                    \"MY\",\n                    \"MZ\",\n                    \"NA\",\n                    \"NE\",\n                    \"NG\",\n                    \"NI\",\n                    \"NL\",\n                    \"NO\",\n                    \"NP\",\n                    \"NR\",\n                    \"NZ\",\n                    \"OM\",\n                    \"PA\",\n                    \"PE\",\n                    \"PG\",\n                    \"PH\",\n                    \"PK\",\n                    \"PL\",\n                    \"PS\",\n                    \"PT\",\n                    \"PW\",\n                    \"PY\",\n                    \"QA\",\n                    \"RO\",\n                    \"RS\",\n                    \"RU\",\n                    \"RW\",\n                    \"SA\",\n                    \"SB\",\n                    \"SC\",\n                    \"SE\",\n                    \"SG\",\n                    \"SI\",\n                    \"SK\",\n                    \"SL\",\n                    \"SM\",\n                    \"SN\",\n                    \"SR\",\n                    \"ST\",\n                    \"SV\",\n                    \"SZ\",\n                    \"TD\",\n                    \"TG\",\n                    \"TH\",\n                    \"TJ\",\n                    \"TL\",\n                    \"TN\",\n                    \"TO\",\n                    \"TR\",\n                    \"TT\",\n                    \"TV\",\n                    \"TW\",\n                    \"TZ\",\n                    \"UA\",\n                    \"UG\",\n                    \"US\",\n                    \"UY\",\n                    \"UZ\",\n                    \"VC\",\n                    \"VE\",\n                    \"VN\",\n                    \"VU\",\n                    \"WS\",\n                    \"XK\",\n                    \"ZA\",\n                    \"ZM\",\n                    \"ZW\"\n                ],\n                \"external_urls\": {\n                    \"spotify\": \"https://open.spotify.com/album/5xeu1LWvPrYWnWuyLXRcRW\"\n                },\n                \"href\": \"https://api.spotify.com/v1/albums/5xeu1LWvPrYWnWuyLXRcRW\",\n                \"id\": \"5xeu1LWvPrYWnWuyLXRcRW\",\n                \"images\": [\n                    {\n                        \"height\": 640,\n                        \"url\": \"https://i.scdn.co/image/ab67616d0000b2734278fa0164671afebf91441a\",\n                        \"width\": 640\n                    },\n                    {\n                        \"height\": 300,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00001e024278fa0164671afebf91441a\",\n                        \"width\": 300\n                    },\n                    {\n                        \"height\": 64,\n                        \"url\": \"https://i.scdn.co/image/ab67616d000048514278fa0164671afebf91441a\",\n                        \"width\": 64\n                    }\n                ],\n                \"name\": \"Another day in America (with Ozuna)\",\n                \"release_date\": \"2021-11-26\",\n                \"release_date_precision\": \"day\",\n                \"total_tracks\": 1,\n                \"type\": \"album\",\n                \"uri\": \"spotify:album:5xeu1LWvPrYWnWuyLXRcRW\"\n            },\n            {\n                \"album_type\": \"single\",\n                \"artists\": [\n                    {\n                        \"external_urls\": {\n                            \"spotify\": \"https://open.spotify.com/artist/5vBSrE1xujD2FXYRarbAXc\"\n                        },\n                        \"href\": \"https://api.spotify.com/v1/artists/5vBSrE1xujD2FXYRarbAXc\",\n                        \"id\": \"5vBSrE1xujD2FXYRarbAXc\",\n                        \"name\": \"Years & Years\",\n                        \"type\": \"artist\",\n                        \"uri\": \"spotify:artist:5vBSrE1xujD2FXYRarbAXc\"\n                    },\n                    {\n                        \"external_urls\": {\n                            \"spotify\": \"https://open.spotify.com/artist/4sTQVOfp9vEMCemLw50sbu\"\n                        },\n                        \"href\": \"https://api.spotify.com/v1/artists/4sTQVOfp9vEMCemLw50sbu\",\n                        \"id\": \"4sTQVOfp9vEMCemLw50sbu\",\n                        \"name\": \"Galantis\",\n                        \"type\": \"artist\",\n                        \"uri\": \"spotify:artist:4sTQVOfp9vEMCemLw50sbu\"\n                    }\n                ],\n                \"available_markets\": [\n                    \"AD\",\n                    \"AE\",\n                    \"AG\",\n                    \"AL\",\n                    \"AM\",\n                    \"AO\",\n                    \"AR\",\n                    \"AT\",\n                    \"AU\",\n                    \"AZ\",\n                    \"BA\",\n                    \"BB\",\n                    \"BD\",\n                    \"BE\",\n                    \"BF\",\n                    \"BG\",\n                    \"BH\",\n                    \"BI\",\n                    \"BJ\",\n                    \"BN\",\n                    \"BO\",\n                    \"BR\",\n                    \"BS\",\n                    \"BT\",\n                    \"BW\",\n                    \"BY\",\n                    \"BZ\",\n                    \"CA\",\n                    \"CD\",\n                    \"CG\",\n                    \"CH\",\n                    \"CI\",\n                    \"CL\",\n                    \"CM\",\n                    \"CO\",\n                    \"CR\",\n                    \"CV\",\n                    \"CW\",\n                    \"CY\",\n                    \"CZ\",\n                    \"DE\",\n                    \"DJ\",\n                    \"DK\",\n                    \"DM\",\n                    \"DO\",\n                    \"DZ\",\n                    \"EC\",\n                    \"EE\",\n                    \"EG\",\n                    \"ES\",\n                    \"FI\",\n                    \"FJ\",\n                    \"FM\",\n                    \"FR\",\n                    \"GA\",\n                    \"GB\",\n                    \"GD\",\n                    \"GE\",\n                    \"GH\",\n                    \"GM\",\n                    \"GN\",\n                    \"GQ\",\n                    \"GR\",\n                    \"GT\",\n                    \"GW\",\n                    \"GY\",\n                    \"HK\",\n                    \"HN\",\n                    \"HR\",\n                    \"HT\",\n                    \"HU\",\n                    \"ID\",\n                    \"IE\",\n                    \"IL\",\n                    \"IN\",\n                    \"IQ\",\n                    \"IS\",\n                    \"IT\",\n                    \"JM\",\n                    \"JO\",\n                    \"JP\",\n                    \"KE\",\n                    \"KG\",\n                    \"KH\",\n                    \"KI\",\n                    \"KM\",\n                    \"KN\",\n                    \"KR\",\n                    \"KW\",\n                    \"KZ\",\n                    \"LA\",\n                    \"LB\",\n                    \"LC\",\n                    \"LI\",\n                    \"LK\",\n                    \"LR\",\n                    \"LS\",\n                    \"LT\",\n                    \"LU\",\n                    \"LV\",\n                    \"LY\",\n                    \"MA\",\n                    \"MC\",\n                    \"MD\",\n                    \"ME\",\n                    \"MG\",\n                    \"MH\",\n                    \"MK\",\n                    \"ML\",\n                    \"MN\",\n                    \"MO\",\n                    \"MR\",\n                    \"MT\",\n                    \"MU\",\n                    \"MV\",\n                    \"MW\",\n                    \"MX\",\n                    \"MY\",\n                    \"MZ\",\n                    \"NA\",\n                    \"NE\",\n                    \"NG\",\n                    \"NI\",\n                    \"NL\",\n                    \"NO\",\n                    \"NP\",\n                    \"NR\",\n                    \"NZ\",\n                    \"OM\",\n                    \"PA\",\n                    \"PE\",\n                    \"PG\",\n                    \"PH\",\n                    \"PK\",\n                    \"PL\",\n                    \"PS\",\n                    \"PT\",\n                    \"PW\",\n                    \"PY\",\n                    \"QA\",\n                    \"RO\",\n                    \"RS\",\n                    \"RU\",\n                    \"RW\",\n                    \"SA\",\n                    \"SB\",\n                    \"SC\",\n                    \"SE\",\n                    \"SG\",\n                    \"SI\",\n                    \"SK\",\n                    \"SL\",\n                    \"SM\",\n                    \"SN\",\n                    \"SR\",\n                    \"ST\",\n                    \"SV\",\n                    \"SZ\",\n                    \"TD\",\n                    \"TG\",\n                    \"TH\",\n                    \"TJ\",\n                    \"TL\",\n                    \"TN\",\n                    \"TO\",\n                    \"TR\",\n                    \"TT\",\n                    \"TV\",\n                    \"TW\",\n                    \"TZ\",\n                    \"UA\",\n                    \"UG\",\n                    \"US\",\n                    \"UY\",\n                    \"UZ\",\n                    \"VC\",\n                    \"VE\",\n                    \"VN\",\n                    \"VU\",\n                    \"WS\",\n                    \"XK\",\n                    \"ZA\",\n                    \"ZM\",\n                    \"ZW\"\n                ],\n                \"external_urls\": {\n                    \"spotify\": \"https://open.spotify.com/album/301gSTTWjmjIa1M6Hx4hPT\"\n                },\n                \"href\": \"https://api.spotify.com/v1/albums/301gSTTWjmjIa1M6Hx4hPT\",\n                \"id\": \"301gSTTWjmjIa1M6Hx4hPT\",\n                \"images\": [\n                    {\n                        \"height\": 640,\n                        \"url\": \"https://i.scdn.co/image/ab67616d0000b2734cfe5cdd428a45bc334a8d6b\",\n                        \"width\": 640\n                    },\n                    {\n                        \"height\": 300,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00001e024cfe5cdd428a45bc334a8d6b\",\n                        \"width\": 300\n                    },\n                    {\n                        \"height\": 64,\n                        \"url\": \"https://i.scdn.co/image/ab67616d000048514cfe5cdd428a45bc334a8d6b\",\n                        \"width\": 64\n                    }\n                ],\n                \"name\": \"Sweet Talker\",\n                \"release_date\": \"2021-11-24\",\n                \"release_date_precision\": \"day\",\n                \"total_tracks\": 1,\n                \"type\": \"album\",\n                \"uri\": \"spotify:album:301gSTTWjmjIa1M6Hx4hPT\"\n            },\n            {\n                \"album_type\": \"single\",\n                \"artists\": [\n                    {\n                        \"external_urls\": {\n                            \"spotify\": \"https://open.spotify.com/artist/05S6yFOzexsgurWstJlBqK\"\n                        },\n                        \"href\": \"https://api.spotify.com/v1/artists/05S6yFOzexsgurWstJlBqK\",\n                        \"id\": \"05S6yFOzexsgurWstJlBqK\",\n                        \"name\": \"Trolls\",\n                        \"type\": \"artist\",\n                        \"uri\": \"spotify:artist:05S6yFOzexsgurWstJlBqK\"\n                    }\n                ],\n                \"available_markets\": [\n                    \"AD\",\n                    \"AE\",\n                    \"AG\",\n                    \"AL\",\n                    \"AM\",\n                    \"AO\",\n                    \"AR\",\n                    \"AT\",\n                    \"AU\",\n                    \"AZ\",\n                    \"BA\",\n                    \"BB\",\n                    \"BD\",\n                    \"BE\",\n                    \"BF\",\n                    \"BG\",\n                    \"BH\",\n                    \"BI\",\n                    \"BJ\",\n                    \"BN\",\n                    \"BO\",\n                    \"BR\",\n                    \"BS\",\n                    \"BT\",\n                    \"BW\",\n                    \"BY\",\n                    \"BZ\",\n                    \"CA\",\n                    \"CD\",\n                    \"CG\",\n                    \"CH\",\n                    \"CI\",\n                    \"CL\",\n                    \"CM\",\n                    \"CO\",\n                    \"CR\",\n                    \"CV\",\n                    \"CW\",\n                    \"CY\",\n                    \"CZ\",\n                    \"DE\",\n                    \"DJ\",\n                    \"DK\",\n                    \"DM\",\n                    \"DO\",\n                    \"DZ\",\n                    \"EC\",\n                    \"EE\",\n                    \"EG\",\n                    \"ES\",\n                    \"FI\",\n                    \"FJ\",\n                    \"FM\",\n                    \"FR\",\n                    \"GA\",\n                    \"GB\",\n                    \"GD\",\n                    \"GE\",\n                    \"GH\",\n                    \"GM\",\n                    \"GN\",\n                    \"GQ\",\n                    \"GR\",\n                    \"GT\",\n                    \"GW\",\n                    \"GY\",\n                    \"HK\",\n                    \"HN\",\n                    \"HR\",\n                    \"HT\",\n                    \"HU\",\n                    \"ID\",\n                    \"IE\",\n                    \"IL\",\n                    \"IN\",\n                    \"IQ\",\n                    \"IS\",\n                    \"IT\",\n                    \"JM\",\n                    \"JO\",\n                    \"JP\",\n                    \"KE\",\n                    \"KG\",\n                    \"KH\",\n                    \"KI\",\n                    \"KM\",\n                    \"KN\",\n                    \"KR\",\n                    \"KW\",\n                    \"KZ\",\n                    \"LA\",\n                    \"LB\",\n                    \"LC\",\n                    \"LI\",\n                    \"LK\",\n                    \"LR\",\n                    \"LS\",\n                    \"LT\",\n                    \"LU\",\n                    \"LV\",\n                    \"LY\",\n                    \"MA\",\n                    \"MC\",\n                    \"MD\",\n                    \"ME\",\n                    \"MG\",\n                    \"MH\",\n                    \"MK\",\n                    \"ML\",\n                    \"MN\",\n                    \"MO\",\n                    \"MR\",\n                    \"MT\",\n                    \"MU\",\n                    \"MV\",\n                    \"MW\",\n                    \"MX\",\n                    \"MY\",\n                    \"MZ\",\n                    \"NA\",\n                    \"NE\",\n                    \"NG\",\n                    \"NI\",\n                    \"NL\",\n                    \"NO\",\n                    \"NP\",\n                    \"NR\",\n                    \"NZ\",\n                    \"OM\",\n                    \"PA\",\n                    \"PE\",\n                    \"PG\",\n                    \"PH\",\n                    \"PK\",\n                    \"PL\",\n                    \"PS\",\n                    \"PT\",\n                    \"PW\",\n                    \"PY\",\n                    \"QA\",\n                    \"RO\",\n                    \"RS\",\n                    \"RU\",\n                    \"RW\",\n                    \"SA\",\n                    \"SB\",\n                    \"SC\",\n                    \"SE\",\n                    \"SG\",\n                    \"SI\",\n                    \"SK\",\n                    \"SL\",\n                    \"SM\",\n                    \"SN\",\n                    \"SR\",\n                    \"ST\",\n                    \"SV\",\n                    \"SZ\",\n                    \"TD\",\n                    \"TG\",\n                    \"TH\",\n                    \"TJ\",\n                    \"TL\",\n                    \"TN\",\n                    \"TO\",\n                    \"TR\",\n                    \"TT\",\n                    \"TV\",\n                    \"TW\",\n                    \"TZ\",\n                    \"UA\",\n                    \"UG\",\n                    \"US\",\n                    \"UY\",\n                    \"UZ\",\n                    \"VC\",\n                    \"VE\",\n                    \"VN\",\n                    \"VU\",\n                    \"WS\",\n                    \"XK\",\n                    \"ZA\",\n                    \"ZM\",\n                    \"ZW\"\n                ],\n                \"external_urls\": {\n                    \"spotify\": \"https://open.spotify.com/album/4QhiPwSJKMHBk0EL67zBaT\"\n                },\n                \"href\": \"https://api.spotify.com/v1/albums/4QhiPwSJKMHBk0EL67zBaT\",\n                \"id\": \"4QhiPwSJKMHBk0EL67zBaT\",\n                \"images\": [\n                    {\n                        \"height\": 640,\n                        \"url\": \"https://i.scdn.co/image/ab67616d0000b273fcdfced3507904cf71acbe02\",\n                        \"width\": 640\n                    },\n                    {\n                        \"height\": 300,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00001e02fcdfced3507904cf71acbe02\",\n                        \"width\": 300\n                    },\n                    {\n                        \"height\": 64,\n                        \"url\": \"https://i.scdn.co/image/ab67616d00004851fcdfced3507904cf71acbe02\",\n                        \"width\": 64\n                    }\n                ],\n                \"name\": \"TROLLS Holiday In Harmony\",\n                \"release_date\": \"2021-11-26\",\n                \"release_date_precision\": \"day\",\n                \"total_tracks\": 5,\n                \"type\": \"album\",\n                \"uri\": \"spotify:album:4QhiPwSJKMHBk0EL67zBaT\"\n            }\n        ],\n        \"limit\": 5,\n        \"next\": \"https://api.spotify.com/v1/browse/new-releases?country=IN&offset=5&limit=5\",\n        \"offset\": 0,\n        \"previous\": null,\n        \"total\": 100\n    }\n}"
+				}
+			]
+		}
+	]
+}

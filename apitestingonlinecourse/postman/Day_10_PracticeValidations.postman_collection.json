@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "1f1c5d85-3332-410b-9006-ffca65d30276",
+		"name": "Day_10_PracticeValidations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Req_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"name = response.included[0].attributes.name;\r",
+							"age = response.included[0].attributes.age;\r",
+							"gender = response.included[0].attributes.gender\r",
+							"title = response.data[0].attributes.title;\r",
+							"\r",
+							"console.log(name + \" \" + age + \" \" + gender);\r",
+							"console.log(title);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getdata1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getdata1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Req_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"require('lodash')\r",
+							"const response = pm.response.json();\r",
+							"console.log(\"No. of error = \" + response.errors.length);\r",
+							"const errors = [];\r",
+							"const details = [];\r",
+							"const pointers = [];\r",
+							"\r",
+							"_.forEach(response.errors, function(value) {\r",
+							"    errors.push(value.status);\r",
+							"    details.push(value.detail);\r",
+							"    pointers.push(value.source.pointer);\r",
+							"});\r",
+							"\r",
+							"console.log(errors);\r",
+							"console.log(details);\r",
+							"console.log(pointers);\r",
+							"\r",
+							"pm.test(\"Test error codes\", () => {\r",
+							"pm.expect(errors).to.eql([\"403\",\"422\",\"500\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getdata2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getdata2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

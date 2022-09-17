@@ -1,0 +1,38 @@
+## Consumer Driven Contracts
+- The consumer defines a contract in consumer codebase.
+- The provider gets notified about the new contract.
+- The provider run tests that verify if all the requirements are met. 
+
+### Pros
+- Risk due to integration will be minimised for the consumers.
+- Consumer can focus more on actual implementation.
+- Provider will get quick feedback about their APIs on needed parameters
+- Provider will be aware of the clients needs without reaching them.
+
+### Cons
+- Provider needs to maintain consumer specific tests.
+- Consumer needs to know their expectation well.
+
+## Provider Driven Contracts
+- The provider defines a contract in provider codebase.
+- The provider runs a build and tests to ensure the contract is fulfilled.
+- If tests pass the provider publishes a contract and associated test doubles into shared repository.
+- Then the consumer may run tests to verify the integration with the provider.
+
+### Pros
+- Full control for the provider.
+- Can share details with the consumers without knowing the consumer sider exact requirements.
+
+### Cons
+- Ignores the consumer perspective.
+
+## API Tests Vs Contracts Tests
+### API Tests
+- Written by provider/consumer
+- Should validate the entire API
+- Should consider the functionality and business use cases
+
+### Contracts Tests
+- Written by provider/consumer
+- Should tests the minimum expectations needed for integration
+- Should not consider the functionality or business logic
